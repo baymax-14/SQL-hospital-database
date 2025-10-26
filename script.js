@@ -1,35 +1,44 @@
 // Hospital Database Management System - JavaScript
 
-// Sample data storage (in a real application, this would connect to a database)
+// Sample data storage with Indian names and details
 let patients = [
-    { id: 1, firstName: 'John', lastName: 'Smith', dateOfBirth: '1985-03-15', gender: 'Male', phone: '555-0101', email: 'john.smith@email.com', address: '123 Main St, City', emergencyContact: '555-0100' },
-    { id: 2, firstName: 'Sarah', lastName: 'Johnson', dateOfBirth: '1990-07-22', gender: 'Female', phone: '555-0102', email: 'sarah.j@email.com', address: '456 Oak Ave, City', emergencyContact: '555-0103' },
-    { id: 3, firstName: 'Michael', lastName: 'Brown', dateOfBirth: '1978-11-08', gender: 'Male', phone: '555-0103', email: 'mike.brown@email.com', address: '789 Pine St, City', emergencyContact: '555-0104' }
+    { id: 1, firstName: 'Rajesh', lastName: 'Kumar', dateOfBirth: '1985-03-15', gender: 'Male', phone: '+91-98765-43210', email: 'rajesh.kumar@gmail.com', address: '123 MG Road, Mumbai, Maharashtra', emergencyContact: '+91-98765-43200' },
+    { id: 2, firstName: 'Priya', lastName: 'Sharma', dateOfBirth: '1990-07-22', gender: 'Female', phone: '+91-98765-43211', email: 'priya.sharma@gmail.com', address: '456 Koramangala, Bangalore, Karnataka', emergencyContact: '+91-98765-43201' },
+    { id: 3, firstName: 'Amit', lastName: 'Patel', dateOfBirth: '1978-11-08', gender: 'Male', phone: '+91-98765-43212', email: 'amit.patel@gmail.com', address: '789 Sector 17, Chandigarh, Punjab', emergencyContact: '+91-98765-43202' },
+    { id: 4, firstName: 'Sunita', lastName: 'Singh', dateOfBirth: '1982-05-20', gender: 'Female', phone: '+91-98765-43213', email: 'sunita.singh@gmail.com', address: '321 Park Street, Kolkata, West Bengal', emergencyContact: '+91-98765-43203' },
+    { id: 5, firstName: 'Vikram', lastName: 'Reddy', dateOfBirth: '1988-09-12', gender: 'Male', phone: '+91-98765-43214', email: 'vikram.reddy@gmail.com', address: '654 Banjara Hills, Hyderabad, Telangana', emergencyContact: '+91-98765-43204' }
 ];
 
 let doctors = [
-    { id: 1, firstName: 'Dr. Emily', lastName: 'Davis', specialization: 'Cardiology', phone: '555-0201', email: 'emily.davis@hospital.com', consultationFee: 150.00 },
-    { id: 2, firstName: 'Dr. Robert', lastName: 'Wilson', specialization: 'Neurology', phone: '555-0202', email: 'robert.wilson@hospital.com', consultationFee: 200.00 },
-    { id: 3, firstName: 'Dr. Lisa', lastName: 'Anderson', specialization: 'Pediatrics', phone: '555-0203', email: 'lisa.anderson@hospital.com', consultationFee: 120.00 }
+    { id: 1, firstName: 'Dr. Anjali', lastName: 'Gupta', specialization: 'Cardiology', phone: '+91-98765-52001', email: 'anjali.gupta@hospital.com', consultationFee: 800.00 },
+    { id: 2, firstName: 'Dr. Rajesh', lastName: 'Verma', specialization: 'Neurology', phone: '+91-98765-52002', email: 'rajesh.verma@hospital.com', consultationFee: 1000.00 },
+    { id: 3, firstName: 'Dr. Priya', lastName: 'Jain', specialization: 'Pediatrics', phone: '+91-98765-52003', email: 'priya.jain@hospital.com', consultationFee: 600.00 },
+    { id: 4, firstName: 'Dr. Suresh', lastName: 'Malhotra', specialization: 'Orthopedics', phone: '+91-98765-52004', email: 'suresh.malhotra@hospital.com', consultationFee: 900.00 },
+    { id: 5, firstName: 'Dr. Meera', lastName: 'Agarwal', specialization: 'Gynecology', phone: '+91-98765-52005', email: 'meera.agarwal@hospital.com', consultationFee: 700.00 }
 ];
 
 let appointments = [
-    { id: 1, patientId: 1, doctorId: 1, date: '2024-01-15', time: '10:00:00', status: 'Scheduled', notes: 'Regular checkup' },
+    { id: 1, patientId: 1, doctorId: 1, date: '2024-01-15', time: '10:00:00', status: 'Scheduled', notes: 'Regular heart checkup' },
     { id: 2, patientId: 2, doctorId: 2, date: '2024-01-15', time: '14:00:00', status: 'Scheduled', notes: 'Neurological examination' },
-    { id: 3, patientId: 3, doctorId: 3, date: '2024-01-16', time: '09:30:00', status: 'Completed', notes: 'Child health checkup' }
+    { id: 3, patientId: 3, doctorId: 3, date: '2024-01-16', time: '09:30:00', status: 'Completed', notes: 'Child health checkup' },
+    { id: 4, patientId: 4, doctorId: 4, date: '2024-01-16', time: '11:00:00', status: 'Scheduled', notes: 'Bone fracture consultation' },
+    { id: 5, patientId: 5, doctorId: 5, date: '2024-01-17', time: '15:30:00', status: 'Scheduled', notes: 'Gynecological examination' }
 ];
 
 let billing = [
-    { id: 1, patientId: 1, date: '2024-01-15', totalAmount: 150.00, paymentStatus: 'Paid', paymentDate: '2024-01-15' },
-    { id: 2, patientId: 2, date: '2024-01-15', totalAmount: 200.00, paymentStatus: 'Pending', paymentDate: null },
-    { id: 3, patientId: 3, date: '2024-01-16', totalAmount: 120.00, paymentStatus: 'Paid', paymentDate: '2024-01-16' }
+    { id: 1, patientId: 1, date: '2024-01-15', totalAmount: 800.00, paymentStatus: 'Paid', paymentDate: '2024-01-15' },
+    { id: 2, patientId: 2, date: '2024-01-15', totalAmount: 1000.00, paymentStatus: 'Pending', paymentDate: null },
+    { id: 3, patientId: 3, date: '2024-01-16', totalAmount: 600.00, paymentStatus: 'Paid', paymentDate: '2024-01-16' },
+    { id: 4, patientId: 4, date: '2024-01-16', totalAmount: 900.00, paymentStatus: 'Pending', paymentDate: null },
+    { id: 5, patientId: 5, date: '2024-01-17', totalAmount: 700.00, paymentStatus: 'Paid', paymentDate: '2024-01-17' }
 ];
 
 let rooms = [
-    { id: 1, roomNumber: '101', type: 'General', capacity: 2, dailyRate: 100.00, status: 'Available' },
-    { id: 2, roomNumber: '102', type: 'Private', capacity: 1, dailyRate: 200.00, status: 'Occupied' },
-    { id: 3, roomNumber: '201', type: 'ICU', capacity: 1, dailyRate: 500.00, status: 'Available' },
-    { id: 4, roomNumber: '301', type: 'Emergency', capacity: 1, dailyRate: 300.00, status: 'Available' }
+    { id: 1, roomNumber: '101', type: 'General', capacity: 2, dailyRate: 2000.00, status: 'Available' },
+    { id: 2, roomNumber: '102', type: 'Private', capacity: 1, dailyRate: 4000.00, status: 'Occupied' },
+    { id: 3, roomNumber: '201', type: 'ICU', capacity: 1, dailyRate: 10000.00, status: 'Available' },
+    { id: 4, roomNumber: '301', type: 'Emergency', capacity: 1, dailyRate: 6000.00, status: 'Available' },
+    { id: 5, roomNumber: '401', type: 'VIP', capacity: 1, dailyRate: 8000.00, status: 'Available' }
 ];
 
 // Initialize the application
@@ -104,7 +113,7 @@ function handlePatientSubmit(e) {
     patients.push(newPatient);
     loadPatientsTable();
     updateDashboard();
-    showMessage('Patient added successfully!', 'success');
+    showMessage('रोगी सफलतापूर्वक जोड़ा गया! | Patient added successfully!', 'success');
     
     // Clear form
     document.getElementById('patientForm').reset();
@@ -151,7 +160,7 @@ function handleDoctorSubmit(e) {
     doctors.push(newDoctor);
     loadDoctorsTable();
     populateSelectOptions();
-    showMessage('Doctor added successfully!', 'success');
+    showMessage('डॉक्टर सफलतापूर्वक जोड़ा गया! | Doctor added successfully!', 'success');
     
     document.getElementById('doctorForm').reset();
 }
@@ -167,7 +176,7 @@ function loadDoctorsTable() {
             <td>${doctor.firstName} ${doctor.lastName}</td>
             <td>${doctor.specialization}</td>
             <td>${doctor.phone}</td>
-            <td>$${doctor.consultationFee.toFixed(2)}</td>
+            <td>₹${doctor.consultationFee.toFixed(2)}</td>
         `;
         tbody.appendChild(row);
     });
@@ -194,7 +203,7 @@ function handleAppointmentSubmit(e) {
     appointments.push(newAppointment);
     loadAppointmentsTable();
     updateDashboard();
-    showMessage('Appointment scheduled successfully!', 'success');
+    showMessage('अपॉइंटमेंट सफलतापूर्वक बुक किया गया! | Appointment scheduled successfully!', 'success');
     
     document.getElementById('appointmentForm').reset();
 }
@@ -217,7 +226,7 @@ function loadAppointmentsTable() {
             <td><span class="status-${appointment.status.toLowerCase()}">${appointment.status}</span></td>
             <td>
                 <button onclick="updateAppointmentStatus(${appointment.id}, 'Completed')" style="background: #28a745; margin-right: 5px;">Complete</button>
-                <button onclick="updateAppointmentStatus(${appointment.id}, 'Cancelled')" style="background: #dc3545;">Cancel</button>
+                <button onclick="updateAppointmentStatus(${appointment.id}, 'Cancelled')" style="background: #dc3545;">Cancel & Delete</button>
             </td>
         `;
         tbody.appendChild(row);
@@ -250,7 +259,7 @@ function handleBillingSubmit(e) {
     });
     
     if (totalAmount === 0) {
-        showMessage('Please add at least one bill item with a valid price.', 'error');
+        showMessage('कृपया कम से कम एक वैध मूल्य के साथ बिल आइटम जोड़ें। | Please add at least one bill item with a valid price.', 'error');
         return;
     }
     
@@ -267,7 +276,7 @@ function handleBillingSubmit(e) {
     billing.push(newBill);
     loadBillingTable();
     updateDashboard();
-    showMessage('Bill created successfully!', 'success');
+    showMessage('बिल सफलतापूर्वक बनाया गया! | Bill created successfully!', 'success');
     
     document.getElementById('billingForm').reset();
     // Reset bill items
@@ -301,7 +310,7 @@ function loadBillingTable() {
             <td>${bill.id}</td>
             <td>${patient ? `${patient.firstName} ${patient.lastName}` : 'Unknown'}</td>
             <td>${bill.date}</td>
-            <td>$${bill.totalAmount.toFixed(2)}</td>
+            <td>₹${bill.totalAmount.toFixed(2)}</td>
             <td><span class="status-${bill.paymentStatus.toLowerCase()}">${bill.paymentStatus}</span></td>
             <td>
                 <button onclick="updatePaymentStatus(${bill.id}, 'Paid')" style="background: #28a745; margin-right: 5px;">Mark Paid</button>
@@ -363,10 +372,17 @@ function removeBillItem(button) {
 function updateAppointmentStatus(appointmentId, status) {
     const appointment = appointments.find(apt => apt.id === appointmentId);
     if (appointment) {
-        appointment.status = status;
+        if (status === 'Cancelled') {
+            // Delete the appointment if it's being cancelled
+            appointments = appointments.filter(apt => apt.id !== appointmentId);
+            showMessage('Appointment cancelled and deleted successfully!', 'success');
+        } else {
+            // Just update the status for other statuses
+            appointment.status = status;
+            showMessage(`Appointment ${status.toLowerCase()} successfully!`, 'success');
+        }
         loadAppointmentsTable();
         updateDashboard();
-        showMessage(`Appointment ${status.toLowerCase()} successfully!`, 'success');
     }
 }
 
@@ -379,7 +395,7 @@ function updatePaymentStatus(billId, status) {
         }
         loadBillingTable();
         updateDashboard();
-        showMessage(`Payment status updated to ${status.toLowerCase()}!`, 'success');
+        showMessage(`भुगतान स्थिति ${status.toLowerCase()} में अपडेट की गई! | Payment status updated to ${status.toLowerCase()}!`, 'success');
     }
 }
 
@@ -389,10 +405,10 @@ function viewBillDetails(billId) {
         let details = `Bill #${bill.id} Details:\n\n`;
         if (bill.items) {
             bill.items.forEach(item => {
-                details += `${item.itemName} (${item.itemType}): $${item.unitPrice} x ${item.quantity} = $${item.totalPrice}\n`;
+                details += `${item.itemName} (${item.itemType}): ₹${item.unitPrice} x ${item.quantity} = ₹${item.totalPrice}\n`;
             });
         }
-        details += `\nTotal Amount: $${bill.totalAmount}`;
+        details += `\nTotal Amount: ₹${bill.totalAmount}`;
         alert(details);
     }
 }
@@ -401,17 +417,17 @@ function editPatient(patientId) {
     const patient = patients.find(p => p.id === patientId);
     if (patient) {
         // In a real application, this would open an edit form
-        showMessage(`Edit functionality for patient ${patient.firstName} ${patient.lastName} would open here.`, 'success');
+        showMessage(`रोगी ${patient.firstName} ${patient.lastName} के लिए संपादन कार्यक्षमता यहाँ खुलेगी। | Edit functionality for patient ${patient.firstName} ${patient.lastName} would open here.`, 'success');
     }
 }
 
 function deletePatient(patientId) {
-    if (confirm('Are you sure you want to delete this patient?')) {
+    if (confirm('क्या आप वाकई इस रोगी को हटाना चाहते हैं? | Are you sure you want to delete this patient?')) {
         patients = patients.filter(p => p.id !== patientId);
         loadPatientsTable();
         updateDashboard();
         populateSelectOptions();
-        showMessage('Patient deleted successfully!', 'success');
+        showMessage('रोगी सफलतापूर्वक हटाया गया! | Patient deleted successfully!', 'success');
     }
 }
 

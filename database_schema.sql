@@ -100,30 +100,40 @@ CREATE TABLE bill_items (
     FOREIGN KEY (bill_id) REFERENCES billing(bill_id)
 );
 
--- Insert sample data
+-- Insert sample data with Indian names and details
 INSERT INTO patients (first_name, last_name, date_of_birth, gender, phone, email, address) VALUES
-('John', 'Smith', '1985-03-15', 'Male', '555-0101', 'john.smith@email.com', '123 Main St, City'),
-('Sarah', 'Johnson', '1990-07-22', 'Female', '555-0102', 'sarah.j@email.com', '456 Oak Ave, City'),
-('Michael', 'Brown', '1978-11-08', 'Male', '555-0103', 'mike.brown@email.com', '789 Pine St, City');
+('Rajesh', 'Kumar', '1985-03-15', 'Male', '+91-98765-43210', 'rajesh.kumar@gmail.com', '123 MG Road, Mumbai, Maharashtra'),
+('Priya', 'Sharma', '1990-07-22', 'Female', '+91-98765-43211', 'priya.sharma@gmail.com', '456 Koramangala, Bangalore, Karnataka'),
+('Amit', 'Patel', '1978-11-08', 'Male', '+91-98765-43212', 'amit.patel@gmail.com', '789 Sector 17, Chandigarh, Punjab'),
+('Sunita', 'Singh', '1982-05-20', 'Female', '+91-98765-43213', 'sunita.singh@gmail.com', '321 Park Street, Kolkata, West Bengal'),
+('Vikram', 'Reddy', '1988-09-12', 'Male', '+91-98765-43214', 'vikram.reddy@gmail.com', '654 Banjara Hills, Hyderabad, Telangana');
 
 INSERT INTO doctors (first_name, last_name, specialization, phone, email, consultation_fee) VALUES
-('Dr. Emily', 'Davis', 'Cardiology', '555-0201', 'emily.davis@hospital.com', 150.00),
-('Dr. Robert', 'Wilson', 'Neurology', '555-0202', 'robert.wilson@hospital.com', 200.00),
-('Dr. Lisa', 'Anderson', 'Pediatrics', '555-0203', 'lisa.anderson@hospital.com', 120.00);
+('Dr. Anjali', 'Gupta', 'Cardiology', '+91-98765-52001', 'anjali.gupta@hospital.com', 800.00),
+('Dr. Rajesh', 'Verma', 'Neurology', '+91-98765-52002', 'rajesh.verma@hospital.com', 1000.00),
+('Dr. Priya', 'Jain', 'Pediatrics', '+91-98765-52003', 'priya.jain@hospital.com', 600.00),
+('Dr. Suresh', 'Malhotra', 'Orthopedics', '+91-98765-52004', 'suresh.malhotra@hospital.com', 900.00),
+('Dr. Meera', 'Agarwal', 'Gynecology', '+91-98765-52005', 'meera.agarwal@hospital.com', 700.00);
 
 INSERT INTO rooms (room_number, room_type, capacity, daily_rate) VALUES
-('101', 'General', 2, 100.00),
-('102', 'Private', 1, 200.00),
-('201', 'ICU', 1, 500.00),
-('301', 'Emergency', 1, 300.00);
+('101', 'General', 2, 2000.00),
+('102', 'Private', 1, 4000.00),
+('201', 'ICU', 1, 10000.00),
+('301', 'Emergency', 1, 6000.00),
+('401', 'VIP', 1, 8000.00);
 
 INSERT INTO treatments (treatment_name, description, cost, duration_minutes) VALUES
-('Blood Test', 'Complete blood count and analysis', 50.00, 15),
-('X-Ray', 'Chest X-ray examination', 80.00, 30),
-('MRI Scan', 'Magnetic resonance imaging', 300.00, 60),
-('Physical Therapy', 'Rehabilitation session', 75.00, 45);
+('Blood Test', 'Complete blood count and analysis', 500.00, 15),
+('X-Ray', 'Chest X-ray examination', 800.00, 30),
+('MRI Scan', 'Magnetic resonance imaging', 8000.00, 60),
+('CT Scan', 'Computed tomography scan', 5000.00, 45),
+('ECG', 'Electrocardiogram', 300.00, 10),
+('Ultrasound', 'Ultrasound examination', 1200.00, 30),
+('Physical Therapy', 'Rehabilitation session', 800.00, 45);
 
 INSERT INTO appointments (patient_id, doctor_id, appointment_date, appointment_time) VALUES
 (1, 1, '2024-01-15', '10:00:00'),
 (2, 2, '2024-01-15', '14:00:00'),
-(3, 3, '2024-01-16', '09:30:00');
+(3, 3, '2024-01-16', '09:30:00'),
+(4, 4, '2024-01-16', '11:00:00'),
+(5, 5, '2024-01-17', '15:30:00');
