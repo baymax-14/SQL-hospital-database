@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Database Management System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>🏥 Hospital Database Management System</h1>
+        <nav>
+            <button class="nav-btn active" onclick="showSection('dashboard')">Dashboard</button>
+            <button class="nav-btn" onclick="showSection('patients')">Patients</button>
+            <button class="nav-btn" onclick="showSection('doctors')">Doctors</button>
+            <button class="nav-btn" onclick="showSection('appointments')">Appointments</button>
+            <button class="nav-btn" onclick="showSection('billing')">Billing</button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="section active">
+            <h2>Dashboard</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Total Patients</h3>
+                    <p id="totalPatients">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Active Appointments</h3>
+                    <p id="activeAppointments">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Available Rooms</h3>
+                    <p id="availableRooms">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Pending Bills</h3>
+                    <p id="pendingBills">0</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Patients Section -->
+        <section id="patients" class="section">
+            <h2>Patient Management</h2>
+            <div class="form-container">
+                <h3>Add New Patient</h3>
+                <form id="patientForm">
+                    <div class="form-row">
+                        <input type="text" id="firstName" placeholder="First Name" required>
+                        <input type="text" id="lastName" placeholder="Last Name" required>
+                    </div>
+                    <div class="form-row">
+                        <input type="date" id="dateOfBirth" required>
+                        <select id="gender" required>
+                            <option value="">Select Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <input type="tel" id="phone" placeholder="Phone Number" required>
+                        <input type="email" id="email" placeholder="Email">
+                    </div>
+                    <textarea id="address" placeholder="Address"></textarea>
+                    <input type="tel" id="emergencyContact" placeholder="Emergency Contact">
+                    <button type="submit">Add Patient</button>
+                </form>
+            </div>
+            
+            <div class="table-container">
+                <h3>Patient Records</h3>
+                <table id="patientsTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Phone</th>
+                            <th>Email</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="patientsTableBody">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Doctors Section -->
+        <section id="doctors" class="section">
+            <h2>Doctor Management</h2>
+            <div class="form-container">
+                <h3>Add New Doctor</h3>
+                <form id="doctorForm">
+                    <div class="form-row">
+                        <input type="text" id="docFirstName" placeholder="First Name" required>
+                        <input type="text" id="docLastName" placeholder="Last Name" required>
+                    </div>
+                    <div class="form-row">
+                        <input type="text" id="specialization" placeholder="Specialization" required>
+                        <input type="tel" id="docPhone" placeholder="Phone Number" required>
+                    </div>
+                    <div class="form-row">
+                        <input type="email" id="docEmail" placeholder="Email">
+                        <input type="number" id="consultationFee" placeholder="Consultation Fee" step="0.01" required>
+                    </div>
+                    <button type="submit">Add Doctor</button>
+                </form>
+            </div>
+            
+            <div class="table-container">
+                <h3>Doctor Records</h3>
+                <table id="doctorsTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Specialization</th>
+                            <th>Phone</th>
+                            <th>Fee</th>
+                        </tr>
+                    </thead>
+                    <tbody id="doctorsTableBody">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Appointments Section -->
+        <section id="appointments" class="section">
+            <h2>Appointment Management</h2>
+            <div class="form-container">
+                <h3>Schedule New Appointment</h3>
+                <form id="appointmentForm">
+                    <div class="form-row">
+                        <select id="appointmentPatient" required>
+                            <option value="">Select Patient</option>
+                        </select>
+                        <select id="appointmentDoctor" required>
+                            <option value="">Select Doctor</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <input type="date" id="appointmentDate" required>
+                        <input type="time" id="appointmentTime" required>
+                    </div>
+                    <textarea id="appointmentNotes" placeholder="Notes (optional)"></textarea>
+                    <button type="submit">Schedule Appointment</button>
+                </form>
+            </div>
+            
+            <div class="table-container">
+                <h3>Appointment Records</h3>
+                <table id="appointmentsTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Patient</th>
+                            <th>Doctor</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="appointmentsTableBody">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Billing Section -->
+        <section id="billing" class="section">
+            <h2>Billing Management</h2>
+            <div class="form-container">
+                <h3>Create New Bill</h3>
+                <form id="billingForm">
+                    <div class="form-row">
+                        <select id="billPatient" required>
+                            <option value="">Select Patient</option>
+                        </select>
+                        <input type="date" id="billDate" required>
+                    </div>
+                    <div class="billing-items">
+                        <h4>Bill Items</h4>
+                        <div class="bill-item">
+                            <select class="item-type">
+                                <option value="Consultation">Consultation</option>
+                                <option value="Treatment">Treatment</option>
+                                <option value="Room">Room</option>
+                                <option value="Medicine">Medicine</option>
+                            </select>
+                            <input type="text" class="item-name" placeholder="Item Name">
+                            <input type="number" class="item-quantity" placeholder="Qty" value="1">
+                            <input type="number" class="item-price" placeholder="Price" step="0.01">
+                            <button type="button" onclick="removeBillItem(this)">Remove</button>
+                        </div>
+                    </div>
+                    <button type="button" onclick="addBillItem()">Add Item</button>
+                    <button type="submit">Create Bill</button>
+                </form>
+            </div>
+            
+            <div class="table-container">
+                <h3>Billing Records</h3>
+                <table id="billingTable">
+                    <thead>
+                        <tr>
+                            <th>Bill ID</th>
+                            <th>Patient</th>
+                            <th>Date</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="billingTableBody">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
